@@ -543,7 +543,8 @@ public class TGPDiscreteSlider:TGPSlider_INTERFACE_BUILDER {
                                 height: trackSize.height)
         let trackY = frame.height / 2
         ticksAbscisses = []
-        for iterate in 0 ..< segments {
+        //Fix: last tick not showing
+        for iterate in 0 ..< segments + 1 {
             let ratio = Double(iterate) / Double(segments)
             let originX = trackRectangle.origin.x + (CGFloat)(trackSize.width * CGFloat(ratio))
             ticksAbscisses.append(CGPoint(x: originX, y: trackY))
